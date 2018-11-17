@@ -1,0 +1,2 @@
+D:\UnityPorjects\Mozgás Rekreáció 3D\MyGameDemo\MyGameDemo\obj\Debug\Assembly-CSharp-Editor.csprojAssemblyReference.cache
+D:\UnityPorjects\Mozgás Rekreáció 3D\MyGameDemo\MyGameDemo\obj\Debug\Assembly-CSharp-Editor.csproj.CoreCompileInputs.cache
