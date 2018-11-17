@@ -7,7 +7,9 @@ using UnityEngine;
 
 public class ReadData : MonoBehaviour
 {
-    private string path = @"D:\BA_1_K2_2017_10_20 12_19_09.csv";
+    private string path = @"D:\Projektek\Szakdolgozat\BA_1_K2_2017_10_20 12_19_09.csv";
+    private const int Kinect_V2_Lines_Length = 77;
+    private const int Kinect_V1_Lines_Length = 60; /*IDK LE KELL CSEKKOLNI*/
 
     float milisec_now = 0f;
     float milisec_next = 0f;
@@ -51,11 +53,25 @@ public class ReadData : MonoBehaviour
     public GameObject right_lower_leg;
     public GameObject right_foot;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
         lines = File.ReadAllLines(path);
         line = lines[1].Split(';');
+        if (line.Length == Kinect_V2_Lines_Length)
+        {
+            
+            /*ITT LEGYEN AZ INSTANTIATE + GET KINECT V1 OR V2*/
+        }
+        else if (line.Length == Kinect_V1_Lines_Length)
+        {
+            /*ITT LEGYEN AZ INSTANTIATE + GET KINECT V1 OR V2*/
+        }
+
+        /*START --> NEED A SEPERATE FUNCTION*/
+        //line = lines[1].Split(';');
 
         offset_x = float.Parse(line[1].Replace(',', '.')) - 0;
         offset_y = float.Parse(line[2].Replace(',', '.')) - 4;
@@ -70,11 +86,17 @@ public class ReadData : MonoBehaviour
             float.Parse(line[3].Replace(',', '.'))), Quaternion.identity);
 
         // RIGHT HAND
+        Transform myTransform = CalculateTransform(new Vector3((float.Parse(line[4].Replace(',', '.')) - offset_x), (float.Parse(line[5].Replace(',', '.')) - offset_y), (float.Parse(line[6].Replace(',', '.')) - offset_z)),
+            new Vector3((float.Parse(line[13].Replace(',', '.')) - offset_x), (float.Parse(line[14].Replace(',', '.')) - offset_y), (float.Parse(line[15].Replace(',', '.')) - offset_z)),
+           right_hand.transform);
         right_hand.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        Instantiate(right_hand, myTransform.position, myTransform.rotation);
+        /*right_hand.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         Instantiate(right_hand, new Vector3((float.Parse(line[10].Replace(',', '.')) - offset_x), (float.Parse(line[11].Replace(',', '.')) - offset_y), (float.Parse(line[12].Replace(',', '.')) - offset_z)), Quaternion.identity);
+        */
 
         // CALCULATE RIGHT_LOWER_ARM POS AND ROTATION AND INSTANTIATE
-        Transform myTransform = CalculateTransform(new Vector3((float.Parse(line[13].Replace(',', '.')) - offset_x), (float.Parse(line[14].Replace(',', '.')) - offset_y), (float.Parse(line[15].Replace(',', '.')) - offset_z)),
+        myTransform = CalculateTransform(new Vector3((float.Parse(line[13].Replace(',', '.')) - offset_x), (float.Parse(line[14].Replace(',', '.')) - offset_y), (float.Parse(line[15].Replace(',', '.')) - offset_z)),
             new Vector3((float.Parse(line[16].Replace(',', '.')) - offset_x), (float.Parse(line[17].Replace(',', '.')) - offset_y), (float.Parse(line[18].Replace(',', '.')) - offset_z)),
             right_lower_arm.transform);
         right_lower_arm.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
@@ -95,12 +117,25 @@ public class ReadData : MonoBehaviour
         Instantiate(right_shoulder, myTransform.position, myTransform.rotation);
 
         // SPINE_SHOULDER
+        myTransform = CalculateTransform(new Vector3((float.Parse(line[25].Replace(',', '.')) - offset_x), (float.Parse(line[26].Replace(',', '.')) - offset_y), (float.Parse(line[27].Replace(',', '.')) - offset_z)),
+            new Vector3((float.Parse(line[19].Replace(',', '.')) - offset_x), (float.Parse(line[20].Replace(',', '.')) - offset_y), (float.Parse(line[21].Replace(',', '.')) - offset_z)),
+            spine_shoulder.transform);
         spine_shoulder.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        Instantiate(spine_shoulder, myTransform.position, myTransform.rotation);
+        /*spine_shoulder.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         Instantiate(spine_shoulder, new Vector3((float.Parse(line[22].Replace(',', '.')) - offset_x), (float.Parse(line[23].Replace(',', '.')) - offset_y), (float.Parse(line[24].Replace(',', '.')) - offset_z)), Quaternion.identity);
+        */
 
         // NECK
+        myTransform = CalculateTransform(new Vector3((float.Parse(line[1].Replace(',', '.')) - offset_x), (float.Parse(line[2].Replace(',', '.')) - offset_y), (float.Parse(line[3].Replace(',', '.')) - offset_z)),
+            new Vector3((float.Parse(line[22].Replace(',', '.')) - offset_x), (float.Parse(line[23].Replace(',', '.')) - offset_y), (float.Parse(line[24].Replace(',', '.')) - offset_z)),
+            neck.transform);
+        neck.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        Instantiate(neck, myTransform.position, myTransform.rotation);
+        /*
         neck.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         Instantiate(neck, new Vector3((float.Parse(line[25].Replace(',', '.')) - offset_x), (float.Parse(line[26].Replace(',', '.')) - offset_y), (float.Parse(line[27].Replace(',', '.')) - offset_z)), Quaternion.identity);
+        */
 
         // CALCULATE LEFT_SHOULDER POS AND ROTATION AND INSTANTIATE
         myTransform = CalculateTransform(new Vector3((float.Parse(line[22].Replace(',', '.')) - offset_x), (float.Parse(line[23].Replace(',', '.')) - offset_y), (float.Parse(line[24].Replace(',', '.')) - offset_z)),
@@ -124,24 +159,59 @@ public class ReadData : MonoBehaviour
         Instantiate(left_lower_arm, myTransform.position, myTransform.rotation);
 
         // LEFT HAND
+        myTransform = CalculateTransform(new Vector3((float.Parse(line[40].Replace(',', '.')) - offset_x), (float.Parse(line[41].Replace(',', '.')) - offset_y), (float.Parse(line[42].Replace(',', '.')) - offset_z)),
+            new Vector3((float.Parse(line[34].Replace(',', '.')) - offset_x), (float.Parse(line[35].Replace(',', '.')) - offset_y), (float.Parse(line[36].Replace(',', '.')) - offset_z)),
+            left_hand.transform);
+        left_hand.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        Instantiate(left_hand, myTransform.position, myTransform.rotation);
+        /*
         left_hand.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         Instantiate(left_hand, new Vector3((float.Parse(line[37].Replace(',', '.')) - offset_x), (float.Parse(line[38].Replace(',', '.')) - offset_y), (float.Parse(line[39].Replace(',', '.')) - offset_z)), Quaternion.identity);
+        */
 
         // SPINE_MID
+        myTransform = CalculateTransform(new Vector3((float.Parse(line[19].Replace(',', '.')) - offset_x), (float.Parse(line[20].Replace(',', '.')) - offset_y), (float.Parse(line[21].Replace(',', '.')) - offset_z)),
+            new Vector3((float.Parse(line[46].Replace(',', '.')) - offset_x), (float.Parse(line[47].Replace(',', '.')) - offset_y), (float.Parse(line[48].Replace(',', '.')) - offset_z)),
+            spine_mid.transform);
+        spine_mid.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        Instantiate(spine_mid, myTransform.position, myTransform.rotation);
+        /*
         spine_mid.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         Instantiate(spine_mid, new Vector3((float.Parse(line[46].Replace(',', '.')) - offset_x), (float.Parse(line[47].Replace(',', '.')) - offset_y), (float.Parse(line[48].Replace(',', '.')) - offset_z)), Quaternion.identity);
+        */
 
         // SPINE_BASE
+        myTransform = CalculateTransform(new Vector3((float.Parse(line[46].Replace(',', '.')) - offset_x), (float.Parse(line[47].Replace(',', '.')) - offset_y), (float.Parse(line[48].Replace(',', '.')) - offset_z)),
+            new Vector3((float.Parse(line[49].Replace(',', '.')) - offset_x), (float.Parse(line[50].Replace(',', '.')) - offset_y), (float.Parse(line[51].Replace(',', '.')) - offset_z)),
+            spine_base.transform);
+        spine_base.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        Instantiate(spine_base, myTransform.position, myTransform.rotation);
+        /*
         spine_base.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         Instantiate(spine_base, new Vector3((float.Parse(line[49].Replace(',', '.')) - offset_x), (float.Parse(line[50].Replace(',', '.')) - offset_y), (float.Parse(line[51].Replace(',', '.')) - offset_z)), Quaternion.identity);
+        */
 
         // HIP_RIGHT
+        myTransform = CalculateTransform(new Vector3((float.Parse(line[49].Replace(',', '.')) - offset_x), (float.Parse(line[50].Replace(',', '.')) - offset_y), (float.Parse(line[51].Replace(',', '.')) - offset_z)),
+            new Vector3((float.Parse(line[52].Replace(',', '.')) - offset_x), (float.Parse(line[53].Replace(',', '.')) - offset_y), (float.Parse(line[54].Replace(',', '.')) - offset_z)),
+            right_hip.transform);
+        right_hip.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        Instantiate(right_hip, myTransform.position, myTransform.rotation);
+        /*
         right_hip.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         Instantiate(right_hip, new Vector3((float.Parse(line[52].Replace(',', '.')) - offset_x), (float.Parse(line[53].Replace(',', '.')) - offset_y), (float.Parse(line[54].Replace(',', '.')) - offset_z)), Quaternion.identity);
+        */
 
         // HIP_LEFT
+        myTransform = CalculateTransform(new Vector3((float.Parse(line[49].Replace(',', '.')) - offset_x), (float.Parse(line[50].Replace(',', '.')) - offset_y), (float.Parse(line[51].Replace(',', '.')) - offset_z)),
+            new Vector3((float.Parse(line[55].Replace(',', '.')) - offset_x), (float.Parse(line[56].Replace(',', '.')) - offset_y), (float.Parse(line[57].Replace(',', '.')) - offset_z)),
+            left_hip.transform);
+        left_hip.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        Instantiate(left_hip, myTransform.position, myTransform.rotation);
+        /*
         left_hip.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         Instantiate(left_hip, new Vector3((float.Parse(line[55].Replace(',', '.')) - offset_x), (float.Parse(line[56].Replace(',', '.')) - offset_y), (float.Parse(line[57].Replace(',', '.')) - offset_z)), Quaternion.identity);
+        */
 
         // CALCULATE RIGHT_THIGH POS AND ROTATION AND INSTANTIATE
         myTransform = CalculateTransform(new Vector3((float.Parse(line[52].Replace(',', '.')) - offset_x), (float.Parse(line[53].Replace(',', '.')) - offset_y), (float.Parse(line[54].Replace(',', '.')) - offset_z)),
@@ -179,9 +249,9 @@ public class ReadData : MonoBehaviour
         left_foot.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         Instantiate(left_foot, new Vector3((float.Parse(line[73].Replace(',', '.')) - offset_x), (float.Parse(line[74].Replace(',', '.')) - offset_y), (float.Parse(line[75].Replace(',', '.')) - offset_z)), Quaternion.identity);
 
-        Debug.Log(float.Parse(line[73].Replace(',', '.')));
-        Debug.Log(float.Parse(line[74].Replace(',', '.')));
-        Debug.Log(float.Parse(line[75].Replace(',', '.')));
+        //Debug.Log(float.Parse(line[73].Replace(',', '.')));
+        //Debug.Log(float.Parse(line[74].Replace(',', '.')));
+        //Debug.Log(float.Parse(line[75].Replace(',', '.')));
 
         currentLine = 1;
     }
@@ -239,9 +309,9 @@ public class ReadData : MonoBehaviour
         transform.position = v3pos;
 
         var v3 = v3b - v3a;    // rotation
-        transform.rotation = Quaternion.FromToRotation(Vector3.right, v3);
+        transform.rotation = Quaternion.LookRotation(v3, Vector3.up);
 
-        transform.localScale = new Vector3(v3.magnitude, 0.1f, v3.magnitude);  // scale 
+        //transform.localScale = new Vector3(v3.magnitude, 0.1f, v3.magnitude);  // scale 
         //transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
 
         return transform;
