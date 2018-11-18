@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44709045, g: 0.4969946, b: 0.5751077, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -174,13 +174,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143114966}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0.41, y: 3.94, z: 1.53}
+  m_LocalRotation: {x: 0.39442474, y: -0.1410489, z: 0.151774, w: 0.8952648}
+  m_LocalPosition: {x: -0.902, y: 6.359, z: -1.106}
   m_LocalScale: {x: 1.0183, y: 1.0183, z: 1.0183}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 48.508003, y: -11.565001, z: 14.019001}
 --- !u!1 &1349900909
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,13 +257,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349900909}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.14805691, y: -0.12558019, z: 0.029599572, w: 0.98052675}
+  m_LocalPosition: {x: 1.28, y: 3.61, z: -0.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 17.324001, y: -14.406001, z: 1.2520001}
 --- !u!114 &1349900913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,27 +276,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c85ee9c4564f441bace6f4806b81e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  right_hand: {fileID: 7992989128724857468, guid: 6c07ae794f1e91c44803d6ac1c955853, type: 3}
-  right_lower_arm: {fileID: 5481963820230986655, guid: 8926c249f0744f84a8eef732c255c842, type: 3}
-  right_upper_arm: {fileID: 7619092733401020651, guid: 64e19e0f287bda748ab1995b9ad4bff8, type: 3}
-  right_shoulder: {fileID: 2433010195433657441, guid: 622ac528ba788cb478932c376ae14ba1, type: 3}
-  head: {fileID: 6142488415150685962, guid: 4ebd9bf1fadd5404ab44f195caa7ab23, type: 3}
-  neck: {fileID: 3269020765248906915, guid: ac8990c3e72ef3a41ab581f7d23989fe, type: 3}
-  left_shoulder: {fileID: 5589659269581218837, guid: cd9c2fe33e756da4ebcc62759e4be6d2, type: 3}
-  left_upper_arm: {fileID: 6727506411694346958, guid: d132881d336caa44082b203b7f3620ab, type: 3}
-  left_lower_arm: {fileID: 2485224233329835075, guid: 1d13aac8adf71c749a7f9300455a76f0, type: 3}
-  left_hand: {fileID: 493315296528685182, guid: 26d084fbdbd2357498fa2c6c8f2e9cc0, type: 3}
-  spine_shoulder: {fileID: 4674469816654318848, guid: 8ce232bbea369814eb8b7aec3b85569d, type: 3}
-  spine_mid: {fileID: 7022882582189206164, guid: 90b1d3c5cdaf3ba4d8e1877dc915cacf, type: 3}
-  spine_base: {fileID: 6185104675406961796, guid: 6ecf46d9cb83ed04996d85cd8f57ae9a, type: 3}
-  left_hip: {fileID: 6501923325844520421, guid: a68059267e636f64b9f8fbfb76ab71a9, type: 3}
-  left_thigh: {fileID: 3618014597249291342, guid: ba7c49fd4256aa141a683f05463a379a, type: 3}
-  left_lower_leg: {fileID: 1167105632258993983, guid: 2a46c8837da345843b91b443bd97bf56, type: 3}
-  left_foot: {fileID: 1682004838830214313, guid: 4e9bfa1d8e79a944e8a60e986854f70c, type: 3}
-  right_hip: {fileID: 6761158433423269282, guid: 39759080b75e11e47b79e66bbb940f5d, type: 3}
-  right_thigh: {fileID: 2770157841029860366, guid: fa65fed3f5e4abf4a9bfbabfb29a3f04, type: 3}
-  right_lower_leg: {fileID: 4519397221392269863, guid: b26f26c7f14bb224895b250276393b38, type: 3}
-  right_foot: {fileID: 6814876141196478557, guid: a9b35b4ec74f8894294f15510072100c, type: 3}
+  posObj: {fileID: 8049865983419733056, guid: 56c0f043297d12e4eb56d84d8b0c97ef, type: 3}
+  right_hand: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  right_lower_arm: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  right_upper_arm: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  right_shoulder: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  head: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  neck: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  left_shoulder: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  left_upper_arm: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  left_lower_arm: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  left_hand: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  spine_shoulder: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  spine_mid: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  spine_base: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  left_hip: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  left_thigh: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  left_lower_leg: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  left_foot: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  right_hip: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  right_thigh: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  right_lower_leg: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  right_foot: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
 --- !u!1 &1700914586
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +349,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f8a131d0432cae047951fe445b3308b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -384,7 +385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700914586}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
