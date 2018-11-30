@@ -9,7 +9,7 @@ public class ReadData : MonoBehaviour
 {
     private string path = @"D:\Projektek\Szakdolgozat\BA_1_K2_2017_10_20 12_19_09.csv";
     private const int Kinect_V2_Lines_Length = 77;
-    private const int Kinect_V1_Lines_Length = 60; /*IDK LE KELL CSEKKOLNI*/
+    private const int Kinect_V1_Lines_Length = 60; // Asszem ennyi.
 
     float milisec_now = 0f;
     float milisec_next = 0f;
@@ -88,15 +88,21 @@ public class ReadData : MonoBehaviour
     public GameObject right_lower_leg;
     public GameObject right_foot;
 
-    // Needs some work but kinda OK
+    // Needs some work
+    private void InstantiateHumanV1(string[] line)
+    {
+
+    }
+
+    
     private void InstantiateHumanV2(string[] line)
     {
 
         // Insatantiate POINTS for TEST
-        for (int i = 10; i < line.Length - 3; i += 3)
-        {
-            InstantiateThePoints(new Vector3(float.Parse(line[i].Replace(',', '.')) - offset_x, float.Parse(line[i + 1].Replace(',', '.')) - offset_y, float.Parse(line[i + 2].Replace(',', '.')) - offset_z));
-        }
+        //for (int i = 10; i < line.Length - 3; i += 3)
+        //{
+        //    InstantiateThePoints(new Vector3(float.Parse(line[i].Replace(',', '.')) - offset_x, float.Parse(line[i + 1].Replace(',', '.')) - offset_y, float.Parse(line[i + 2].Replace(',', '.')) - offset_z));
+        //}
 
         // HEAD
         a = Instantiate(head, new Vector3(float.Parse(line[1].Replace(',', '.')) - offset_x,
@@ -221,7 +227,7 @@ public class ReadData : MonoBehaviour
         currentLine = 1;
     }
 
-    // TO DO
+    
     private void MoveHumanFigureV2(string[] line)
     {
 
@@ -366,96 +372,93 @@ public class ReadData : MonoBehaviour
         v = Instantiate(left_foot, new Vector3((float.Parse(line[73].Replace(',', '.')) - offset_x), (float.Parse(line[74].Replace(',', '.')) - offset_y), (float.Parse(line[75].Replace(',', '.')) - offset_z)), Quaternion.identity);        
     }
 
+    // TO DO.
     private void MoveHumanFigureV1(string[] line)
     {
 
     }
 
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update.
     void Start()
     {
-        // Get first line
+        // Get first line.
         lines = File.ReadAllLines(path);
         line = lines[1].Split(';');
 
-        // Calculate offset
+        // Calculate offset.
         offset_x = float.Parse(line[1].Replace(',', '.')) - 0;
         offset_y = float.Parse(line[2].Replace(',', '.')) - 4;
         offset_z = float.Parse(line[3].Replace(',', '.')) - 2;
 
         if (line.Length == Kinect_V2_Lines_Length)
         {
-            /*ITT LEGYEN AZ INSTANTIATE + GET KINECT V1 OR V2*/
+            // Instantiating human figure if the file contains a Kinect V2 data.
             InstantiateHumanV2(line);
             V2 = true;
         }
         else if (line.Length == Kinect_V1_Lines_Length)
         {
-            /*ITT LEGYEN AZ INSTANTIATE + GET KINECT V1 OR V2*/
+            // Instantiating human figure if the file contains a Kinect V1 data.
+            InstantiateHumanV1(line);
             V2 = false;
+        }
+        else
+        {
+            // Error message.
+
         }
     }
 
+    
 
-    // Update is called once per frame
+
+    // Update is called once per frame.
     void Update()
     {
-        // Get elapsed milisec
+        // Get elapsed milisec.
         line = lines[currentLine].Split(';');
         milisec_next = float.Parse(line[0].Replace(',', '.'));
         float waitTime = (milisec_next - milisec_now);
         milisec_now = milisec_next;
 
-        // AZ IF JÓ ITT
+        // If we are still in the file.
         if (!(currentLine >= lines.Length - 1))
         {
             StartCoroutine(GetNextLineData(waitTime, line));
+        }else
+        {
+            // Wait for button input.
         }
 
     }
     
 
     
-
+    // Get data from the next line and move the human to the coordinates.
     private IEnumerator GetNextLineData(float waitTime, string[] line)
     {
-        //for (int i = 1; i < line.Length-3; i += 3)
-        //{
-        //    for (int j = i; j < i+3; j++)
-        //    {
-        //        //Debug.Log(line[j]);
-        //    }
-        //}
-        // ------------------------------------------------ ITT FOLYTASD ------------------------------------------------
-        // Move human to coordinates
-        Debug.Log(waitTime);
+        // Move human to coordinates.
         yield return new WaitForSeconds(waitTime);
 
         if (V2)
         {
+            // Moving human.
             MoveHumanFigureV2(line);
         }
         else
         {
+            // Moving human.
             MoveHumanFigureV1(line);
         }
 
-        // --------------------------------- IDŐZÍTÉS ---------------------------------
-        //Elapsed time = 5, 6 sec
-        //Needed elapsed time = 11 sec
-        //if milisec_next == Stopwatch.now
-        //  start coroutine
-        // Talán ez a megoldás jó lesz...
+        // If we are still in the file.
         if (!(currentLine >= lines.Length - 1))
-            currentLine += 1;
-        //---------------IDK mért pontatlan
-
-        
+            currentLine += 1;     
     }
 
 
-    // EZ MÁR JÓ
+    // Calculating the position, rotation and scale for each human body part.
     public Transform CalculateTransform(Vector3 startPos, Vector3 endPos, Transform transform)
     {
         Vector3 v3a = startPos;
@@ -472,7 +475,6 @@ public class ReadData : MonoBehaviour
         var rot = Quaternion.FromToRotation(v3, Vector3.up);
         transform.rotation = rot;
 
-        //var v3s = v3b/2.0f - v3a/2.0f;
         transform.localScale = new Vector3(0.1f, v3.magnitude/2.0f, 0.1f);  // scale 
 
         return transform;
