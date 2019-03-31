@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44709045, g: 0.4969946, b: 0.5751077, a: 1}
+  m_IndirectSpecularColor: {r: 0.44709045, g: 0.4969946, b: 0.57510775, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -167,7 +167,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
@@ -346,7 +347,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
@@ -447,8 +449,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 742642391}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+      m_Calls:
+      - m_Target: {fileID: 1349900915}
+        m_MethodName: ChangeMenuScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 03Szakdoga
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &742642391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,7 +481,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -476,6 +491,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+  m_UseSpriteMesh: 0
 --- !u!222 &742642392
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -631,6 +647,8 @@ GameObject:
   - component: {fileID: 1349900911}
   - component: {fileID: 1349900910}
   - component: {fileID: 1349900913}
+  - component: {fileID: 1349900914}
+  - component: {fileID: 1349900915}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -715,27 +733,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   posObj: {fileID: 8049865983419733056, guid: 56c0f043297d12e4eb56d84d8b0c97ef, type: 3}
-  right_hand: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
-  right_lower_arm: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
-  right_upper_arm: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
-  right_shoulder: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  right_hand: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
+  right_lower_arm: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
+  right_upper_arm: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
+  right_shoulder: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
   head: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
   neck: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
-  left_shoulder: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
-  left_upper_arm: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
-  left_lower_arm: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
-  left_hand: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
-  spine_shoulder: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
-  spine_mid: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
-  spine_base: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
-  left_hip: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
-  left_thigh: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
-  left_lower_leg: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
-  left_foot: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
-  right_hip: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
-  right_thigh: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
-  right_lower_leg: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
-  right_foot: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177, type: 3}
+  left_shoulder: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
+  left_upper_arm: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
+  left_lower_arm: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
+  left_hand: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
+  spine_shoulder: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
+  spine_mid: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
+  spine_base: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
+  left_hip: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
+  left_thigh: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
+  left_lower_leg: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
+  left_foot: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
+  right_hip: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
+  right_thigh: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
+  right_lower_leg: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
+  right_foot: {fileID: 8700139108888588369, guid: 823a7158f90b0e04e9ebb11ec0f4d177,
+    type: 3}
+--- !u!114 &1349900914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349900909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32c53d7e97f36454ba78e0976ee88887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1349900915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349900909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318e259de6e842340bc1f771931d8456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1374139546
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,7 +832,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f8a131d0432cae047951fe445b3308b7, type: 2}
+  - {fileID: 2100000, guid: 8e30afb2b2e76494886f68116d1ab14c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -891,8 +952,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1527479990}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+      m_Calls:
+      - m_Target: {fileID: 1349900914}
+        m_MethodName: exitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1527479990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -911,7 +984,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -920,6 +994,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+  m_UseSpriteMesh: 0
 --- !u!222 &1527479991
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -983,7 +1058,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
@@ -1041,7 +1117,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f8a131d0432cae047951fe445b3308b7, type: 2}
+  - {fileID: 2100000, guid: f065200141003c6449b32ca16c34e04a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1161,8 +1237,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1920693926}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+      m_Calls:
+      - m_Target: {fileID: 1349900915}
+        m_MethodName: ChangeMenuScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 01MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1920693926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1181,7 +1269,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -1190,6 +1279,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+  m_UseSpriteMesh: 0
 --- !u!222 &1920693927
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1233,7 +1323,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f8a131d0432cae047951fe445b3308b7, type: 2}
+  - {fileID: 2100000, guid: 8e44840eb2a09a74eb43e0f6e40a6b58, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

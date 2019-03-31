@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/MyScenes/01MainMenu.unity
+- path: Assets/MyScenes/03Szakdoga.unity
   isLoaded: 1
   isActive: 1

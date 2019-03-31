@@ -4,10 +4,13 @@ using System.Collections.Generic;
 //using System.Diagnostics;
 using System.IO;
 using UnityEngine;
+using UnityEditor;
 
 public class ReadData : MonoBehaviour
 {
-    private string path = @"D:\Projektek\Szakdolgozat\BA_1_K2_2017_10_20 12_19_09.csv";
+
+    private string path = @"D:\GitHub\Szakdolgozat\Coordinates\BO_1_K2_2017_10_20 12_34_32.csv";
+
     private const int Kinect_V2_Lines_Length = 77;
     private const int Kinect_V1_Lines_Length = 60; // Asszem ennyi.
 
