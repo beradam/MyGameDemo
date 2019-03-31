@@ -14,7 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/MyScenes/02Game.unity
     guid: 7f9ff688f7cf725489c9e821c60fc00e
+  - enabled: 1
+    path: Assets/MyScenes/03Szakdoga.unity
+    guid: 4cfbc7e5d37753d4b93ccb60abd08ac2
   m_configObjects: {}
